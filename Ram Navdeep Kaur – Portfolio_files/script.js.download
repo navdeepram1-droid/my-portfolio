@@ -1,0 +1,68 @@
+// Smooth scrolling for nav links
+document.querySelectorAll('nav a').forEach(link => {
+  link.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    target.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+
+// Fade-in effect for sections
+const sections = document.querySelectorAll('section');
+function revealSections() {
+  const triggerBottom = window.innerHeight * 0.8;
+  sections.forEach(section => {
+    const sectionTop = section.getBoundingClientRect().top;
+    if (sectionTop < triggerBottom) {
+      section.classList.add('visible');
+    }
+  });
+}
+window.addEventListener('scroll', revealSections);
+window.addEventListener('load', revealSections);
+
+// Show popup confirmation
+function showPopup(show) {
+  const popup = document.getElementById('popup');
+  if (show) {
+    popup.style.display = 'block';
+    setTimeout(() => {
+      popup.style.display = 'none';
+    }, 3000); // hide after 3 seconds
+  }
+}
+
+// Add Recommendation
+function addRecommendation() {
+  const recommendationText = document.getElementById('new_recommendation')?.value.trim();
+  if (recommendationText && recommendationText !== '') {
+    const newRecDiv = document.createElement('div');
+    newRecDiv.className = 'recommendation';
+    const recPara = document.createElement('p');
+    recPara.textContent = recommendationText;
+    newRecDiv.appendChild(recPara);
+
+    // Append to recommendation list
+    const recContainer = document.getElementById('recommendation-list');
+    if (recContainer) {
+      recContainer.appendChild(newRecDiv);
+    } else {
+      document.getElementById('recommendations').appendChild(newRecDiv);
+    }
+
+    // Clear textarea
+    document.getElementById('new_recommendation').value = '';
+
+    // Show confirmation popup
+    showPopup(true);
+  }
+}
+
+// Smooth scroll for home icon
+const homeIcon = document.getElementById('home-icon');
+if (homeIcon) {
+  homeIcon.addEventListener('click', function(e) {
+    e.preventDefault();
+    document.querySelector('header').scrollIntoView({ behavior: 'smooth' });
+  });
+}

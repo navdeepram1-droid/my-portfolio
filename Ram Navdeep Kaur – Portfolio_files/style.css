@@ -1,0 +1,222 @@
+//* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Base */
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #000; /* black background */
+    color: #eaeaea;         /* light grey text */
+  }
+  
+  /* Header & Navigation */
+  header {
+    background: #001f3f; /* dark navy blue */
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+  }
+  
+  header h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  nav ul li {
+    margin: 5px 15px;
+  }
+  
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+  }
+  
+  nav ul li a:hover {
+    background: rgba(255,255,255,0.2);
+  }
+  
+  /* Sections */
+  section {
+    padding: 60px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    opacity: 0;             /* hidden by default for fade-in */
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  
+  section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  section h2 {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    color: #00aaff; /* bright blue headings */
+  }
+  
+  /* About Me */
+  #about p {
+    font-size: 1.1rem;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  /* Skills */
+  .skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+  }
+  
+  .skills-list li {
+    background: #001f3f;
+    color: #00aaff;
+    margin: 8px;
+    padding: 12px 20px;
+    border-radius: 30px;
+    font-weight: 500;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+    transition: transform 0.2s ease, background 0.3s ease;
+  }
+  
+  .skills-list li:hover {
+    transform: scale(1.05);
+    background: #00aaff;
+    color: #000;
+  }
+  
+  .skill-icon {
+    width: 30px;
+    height: 30px;
+  }
+  
+  /* Projects */
+  .project-card {
+    background: #111;
+    color: #eaeaea;
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 700px;
+    border: 1px solid #00aaff;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.4);
+  }
+  
+  .project-card h3 {
+    color: #00aaff;
+    margin-bottom: 10px;
+  }
+  
+  /* Recommendations */
+  .recommendation {
+    background: #001f3f;
+    color: #eaeaea;
+    border-left: 5px solid #00aaff;
+    margin: 10px auto;
+    padding: 15px 20px;
+    max-width: 700px;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+    font-style: italic;
+  }
+  
+  .add-recommendation {
+    max-width: 700px;
+    margin: 15px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .add-recommendation textarea {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #00aaff;
+    background-color: #111;
+    color: #eaeaea;
+    resize: vertical;
+    min-height: 80px;
+  }
+  
+  .add-recommendation button {
+    background-color: #00aaff;
+    color: #000;
+    font-weight: bold;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .add-recommendation button:hover {
+    background-color: #0088cc;
+  }
+  
+  /* Popup */
+  .popup {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #00aaff;
+    color: #000;
+    padding: 15px 25px;
+    border-radius: 8px;
+    font-weight: bold;
+    display: none;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.4);
+    z-index: 1000;
+  }
+  
+  /* Footer */
+  footer {
+    background: #001f3f;
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    font-size: 0.9rem;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    nav ul {
+      flex-direction: column;
+    }
+    nav ul li {
+      margin: 8px 0;
+    }
+    section {
+      padding: 40px 15px;
+    }
+    section h2 {
+      font-size: 1.5rem;
+    }
+    #about p {
+      font-size: 1rem;
+    }
+  }        
